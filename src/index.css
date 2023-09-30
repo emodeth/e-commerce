@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Blinker", sans-serif;
+  scroll-behavior: smooth;
+}
+
+.trending-slider::-webkit-scrollbar {
+  display: none;
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.container {
+  max-width: 1200px;
+  padding-left: 19px;
+  padding-right: 19px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navbar--sticky {
+  height: 80px !important;
+}
+
+.mobile-navbar--active {
+  left: 0 !important;
+}
+
+.cart--active {
+  right: 0 !important;
+}
+
+.overlay--active {
+  display: block !important;
+}
+
+.grid-0 {
+  grid-area: zero;
+}
+
+.grid-1 {
+  grid-area: one;
+}
+
+.grid-2 {
+  grid-area: two;
+}
+.grid-3 {
+  grid-area: three;
+}
+
+.grid-container {
+  grid-template-areas:
+    "zero one"
+    "two three";
+}
+
+@media (min-width: 768px) {
+  .grid-container {
+    grid-template-areas:
+      "zero one two"
+      "zero one three";
+  }
+}
