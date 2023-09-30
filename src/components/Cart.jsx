@@ -5,7 +5,7 @@ import emptyCart from "../img/cart/empty-cart.png";
 import CartItem from "./CartItem";
 
 function Cart() {
-  const { cartItems, totalPrice, totalQty } = useShop();
+  const { cartItems, totalPrice } = useShop();
   const { isCartActive, setIsCartActive, setOverlay } = useNavbar();
 
   return (
@@ -15,7 +15,9 @@ function Cart() {
       }`}
     >
       <div className="flex items-center justify-between">
-        <p className="text-[21px] font-bold">Your Shopping Cart ({totalQty})</p>
+        <p className="text-[21px] font-bold">
+          Your Shopping Cart ({cartItems.length})
+        </p>
         <IconX
           onClick={() => {
             setIsCartActive(false);
@@ -25,7 +27,7 @@ function Cart() {
         />
       </div>
       <div className="p-2 overflow-y-auto flex flex-col justify-between h-full">
-        {totalQty === 0 ? (
+        {cartItems.length === 0 ? (
           <div className="flex flex-col w-[160px] my-[150px] mx-auto items-center text-center">
             <img src={emptyCart} alt="empty cart" />
             <p className="text-[20px] font-semibold mt-[10px]">
@@ -51,7 +53,7 @@ function Cart() {
             ))}
           </div>
         )}
-        {totalQty >= 1 && (
+        {cartItems.length >= 1 && (
           <div className="flex flex-col items-center justify-between mt-[15px] py-[10px] border-t-[2px] border-dashed border-black pb-[20px] xs:flex-row ">
             <div className="flex flex-col gap-[10px] font-semibold text-[25px] items-center xs:items-start">
               <p>Subtotal</p>
